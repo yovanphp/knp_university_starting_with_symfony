@@ -1,0 +1,19 @@
+1. Symfony is a component library. This means that we can use any part of it in any PHP project - even legacy apps.
+We could use symfony as driver component to give it flexible URLs.
+
+- Finder: Listing and filtering (date, filename, etc) files and directories.
+- Console: Awesome command-line applications with coloration, input/output & other goodies.
+- Process: Excecute external processes, check errors, send signals, run asynchronously.
+- Routing: Create a front controller (e.g index.php) and flexible URL structures in any app.
+
+Other frameworks use parts of symfony like Drupal and Lavarel.
+
+Symfony is also a framework - how every individual components can work together in a consistent framework.
+
+Silex is another framework built on symfony. Its goal is to be tiny and really simple to use.
+We can use both frameworks as they both use the same pieces.
+Symfony follows widely used standards and hence works well with other librairies:
+- Uses composer
+- Follows PSR (code style, class naming, interfaces, etc) standards.
+
+This makes it easy to use other librairies in our projects.

@@ -1,0 +1,4 @@
+1. See the 'Wonderful World of Composer' tutorial at http://bit.ly/KnpU-Composer
+2. http://stackoverflow.com/questions/33909559/php-composer-xdebug-warning
+3. Official installer to install the Symfony full-stack framework: https://github.com/symfony/symfony-installer
+4. Install Symfony with PEAR: https://jonpolygon.com/installing-symfony-wamp/

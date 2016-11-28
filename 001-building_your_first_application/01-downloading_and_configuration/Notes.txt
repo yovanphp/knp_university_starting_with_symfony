@@ -1,0 +1,4 @@
+1. Install symfony using Composer (PHP package manager - it downloads external libraries into our projects).
+2. Install composer using installer at: http://bit.ly/composer-win
+ - check installation: composer -V
+ - composer create-project symfony/framework-standard-edition starwarsevents @stable

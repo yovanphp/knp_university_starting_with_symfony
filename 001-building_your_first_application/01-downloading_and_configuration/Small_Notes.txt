@@ -1,0 +1,18 @@
+1. Install Wamp
+	- Configure php.ini
+	- Protect MySQL database
+
+2. Add these two paths to the environment variables:
+C:\wamp\bin\php\php5.5.12
+C:\wamp\bin\mysql\mysql5.6.17\bin
+
+3.
+ - Install composer at http://bit.ly/composer-win
+ - check installation: composer -V
+ - mkdir Sites && cd Sites
+ - composer create-project symfony/framework-standard-edition starwarsevents @stable
+ 
+4. Configure and launch app
+- Enter to configure all settings to default
+- cd starwarsevents
+- php bin/console server:run

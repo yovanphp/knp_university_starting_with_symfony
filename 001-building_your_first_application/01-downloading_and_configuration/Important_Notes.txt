@@ -1,0 +1,4 @@
+1. Install Symfony using this method: http://symfony.com/doc/master/setup.html#creating-symfony-applications-without-the-installer
+
+2. Consider all other distributions of Symfony (demo, CMF and REST).
+
