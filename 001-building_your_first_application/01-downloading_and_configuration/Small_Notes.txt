@@ -1,18 +1,52 @@
 1. Install Wamp
 	- Configure php.ini
-	- Protect MySQL database
+	- Protect MySQL database : http://www.c4learn.com/php/change-mysql-root-password-in-wampserver/
 
 2. Add these two paths to the environment variables:
 C:\wamp\bin\php\php5.5.12
 C:\wamp\bin\mysql\mysql5.6.17\bin
 
-3.
+-------------------------------------------------------------------------------------------------------------
+1.
  - Install composer at http://bit.ly/composer-win
  - check installation: composer -V
  - mkdir Sites && cd Sites
  - composer create-project symfony/framework-standard-edition starwarsevents @stable
+ - composer create-project symfony/framework-standard-edition starwarsevents '~2.4'
  
-4. Configure and launch app
+2. Configure and launch app
 - Enter to configure all settings to default
 - cd starwarsevents
-- php bin/console server:run
+- php bin/console server:run -> If we have php5.4 or higher we use the built in server.
+- http://127.0.0.1:8000
+
+---------------------------------------------------------------------------------------------------------
+We will use the symfony installer to create new symfony projects: https://github.com/symfony/symfony-installer
+
+1. php -r "file_put_contents('symfony', file_get_contents('https://symfony.com/installer'));"
+2. (echo @ECHO OFF & echo php "%~dp0symfony" %*) > symfony.bat
+3. We should already have added the phpversion folder in our environment path. We can place the symfony and symfony.bat files in the same folder
+4. If we have the cURL error 60-SSL certificate problem, we have to get the cacert.pem file from https://curl.haxx.se/ca/cacert.pem and place it in a folder that we will reference in our php.ini file.
+Note: The php.ini file is : C:\wamp\bin\php\php5.5.12\php.ini
+=> Uncomment the line ;curl.cainfo and configure as follows: curl.cainfo = "C:/wamp/certificate/cacert.pem".
+
+1. symfony new my_project
+
+2. symfony new my_project lts
+
+3. symfony new my_project 2.8.1
+
+4. symfony demo
+
+
+OK  Symfony 2.8.14 was successfully installed. Now you can:
+
+    * Change your current directory to C:\wamp\www\knp_university_symfony\Sites\001_events_manager
+
+    * Configure your application in app/config/parameters.yml file.
+
+    * Run your application:
+        1. Execute the php app/console server:run command.
+        2. Browse to the http://localhost:8000 URL.
+
+    * Read the documentation at http://symfony.com/doc
