@@ -1,0 +1,44 @@
+The entityManager object is used to fetch and save database mapped objects.
+
+We can use the play.php file to run tests over our Event entity;
+1. include the namespace of Event
+2. Define and initialize the $event object
+3. get the entityManager from the doctrine service by using the controllers access to the service container 
+4. Persist the $entity object. This is a 2 step process. 
+persist[attaches the object to doctrine] and flush[now doctrine executes the actual insert query].
+We can execute multiple times persist method to save different objects and finally only one flush() statement. Doctrine will try to generate as few insert statements as it can.
+
+php play.php inserts the record into the database. To query the database with the console using raw SQL:
+php app/console doctrine:query:sql "SELECT * FROM yoda_event"
+
+All table rows in our DB are set to be not null.
+Suppose we want to set the time column to be nullable. 
+1. Set the time field as nullable=true in the Event class.
+2. php app/console doctrine:schema:update --force to reflect these changes
+
+We have inserted dummy data using our play.php file.
+
+Displaying data
+----------------
+//$em = $this->container->get('doctrine')->getManager(); See shortcut below (remember: we have access to Symfony base Controller methods)
+/*$em = $this->getDoctrine()->getManager();
+//To query for an entity, we must first get the entities repository object from the entityManager getRepository(name of entity)
+//The sole job of a repository: Query for one type of object. 
+//The name of the entity is a shortcut=> EventBundle:Event translates to Yoda\EventBundle\Entity\Event
+$repository = $em->getRepository('EventBundle:Event');*/
+
+
+//Getting the repository directly from doctrine.
+$repository = $this->getDoctrine()->getRepository('EventBundle:Event');
+$event = $repository->findOneBy([
+		'name' => 'Darth\'s surprise birthday party!'
+	]);
+return $this->render('EventBundle:Default:index.html.twig', ['name' => $name, 'count' => $count, 'event' => $event]);
+
+We can simply dump the event object {{ dump(event) }} or use Twig's render syntax to render the $event's properties.
+Twig is smart enough to run the getter method on the private properties.
+
+We can get information on our queries by checking the web debug toolbar which notifies us of the number of DB queries that were run before rendering the page.
+
+For doctrine's reference see the doctrine website.
+Remember: All doctrine annonations must be prefixed by \ORM because of the use as inclusion of the class.

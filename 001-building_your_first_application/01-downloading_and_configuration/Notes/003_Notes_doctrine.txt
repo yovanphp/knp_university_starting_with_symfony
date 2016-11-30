@@ -1,0 +1,30 @@
+1. php app/console doctrine:database:create
+2. php app/console doctrine:generate:entity
+The Entity shortcut name: EventBundle:Event
+Configuration format (yml, xml, php, or annotation) [annotation]:
+Add fields name(String), time(datetime), location(String), details(text)
+
+Note: We only created the model with its accessors. 
+To generate a table out of the model, doctrine finds all our entities, reads their annotation mapping config and creates all the tables.
+php app/console doctrine:schema:update --force
+
+=>
+1. Two classes were created:
+Entity/Event.php
+Repository/EventRepository.php
+
+An entity is just a PHP class that we want to save in the database.
+The annotations in an Entity class are the metadata that doctrine uses to persist the odject in the DB.
+We can change the table name: @ORM\Table(name="yoda_event")
+
+Debugging trick:
+1. Copy app_dev.php file to the root of the project and rename it as play.php
+2. Remove the I.P protection stuff at the top and update loader file path since we moved the file.
+3. We will use this file as a debugging tool. We will write random code and execute it from the commad line to see what happens.
+
+4. For example, adding these line below in the file and executing it in the console (php play.php) echoes the HTML string output on screen.
+$templating = $container->get('templating');
+echo $templating->render(
+		'EventBundle:Default:index.html.twig', 
+		['name' => 'Yovan Juggoo', 'count' => 18]
+	);

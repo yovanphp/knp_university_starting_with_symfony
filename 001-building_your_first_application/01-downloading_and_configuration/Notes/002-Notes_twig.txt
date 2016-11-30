@@ -1,0 +1,29 @@
+1. Twig files are files where we mix HTML tags with dynamic data. Twig is a templating language.
+We previously saw that these are rendered with the templating service inside a controller.
+Twig has different tags
+{{ }} = say something tag -> echo
+{% %} = do something tag -> looping, defining variables and their statements.
+
+Twigs components are divisible in 4 categories
+Tags - do, if, for etc
+Filters : with |, example date, reverse ect
+Functions like block, max, min etc
+Tests like: even, divisible by ect
+
+We can decorate our twig template with the base.twig.layout.
+
+The block tag are like holes which child templates fill in.
+The content of the body block of index.html.twig is inserted into the body block of base.html.twig.
+If we open the base.html.twig file, we see that the title block has a default hardcoded title: Welcome!
+We can replace the title in our child templates: {% block title %} This is my custom title {% endblock %}
+A shorter syntax for the title block: {% block title 'This is my custom title' %}
+
+We can also append to a block instead of replacing it. This is done with parent() - see later
+
+{% extends 'base.html.twig' %}
+When we extend the base.html.twig file, we have actually extended the base.html.twig file in the Resources views folder of the app folder (no bundle, no subdirectory).
+The file name inside a twig file is the same as what we use inside a controller
+BundleName:Directory:filename => BundleName/Resources/views/Directory/filename
+base.html.twig => ::base.html.twig => The bundle name is missing and it is not in a directory inside a Resources/views folder
+=> The file is inside the app/Resources/views root folder,
+

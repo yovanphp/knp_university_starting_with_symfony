@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'This is my custom title' %}
+{# Hallo This is a comment! #}
+
+{% block body %}
+	{{ dump(event) }}
+
+	<h2>Event details</h2>
+	<ul>
+		<li>{{ event.name }}</li>
+		<li>{{ event.time | date('Y-m-d H:i:s')}}</li>
+		<li>{{ event.location }}</li>
+		<li>{{ event.details }}</li>
+	</ul>
+
+	{% for i in 1..count %}
+		<p>
+			{{ name | upper }} is awesome.
+			{% if i is odd %}
+				{{i}} is an odd number
+				{% else %} {{i}}: Ok it is even
+			{% endif%}
+		</p>
+	{% endfor %}
+{% endblock %}

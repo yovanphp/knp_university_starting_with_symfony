@@ -1,5 +1,5 @@
 1. Symfony is a component library. This means that we can use any part of it in any PHP project - even legacy apps.
-We could use symfony as driver component to give it flexible URLs.
+We could use symfony's router component to give it flexible URLs.
 
 - Finder: Listing and filtering (date, filename, etc) files and directories.
 - Console: Awesome command-line applications with coloration, input/output & other goodies.
